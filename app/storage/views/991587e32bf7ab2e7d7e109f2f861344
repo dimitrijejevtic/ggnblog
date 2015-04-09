@@ -1,0 +1,47 @@
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">
+            <?php echo $post->title; ?>
+
+        </h1>
+        <div class="clearfix">
+            <span class="left date"><?php echo explode(' ',$post->created_at)[0]; ?></span>
+            <span class="right label"><?php echo HTML::link('#reply','Reply',['style'=>'color:inherit']); ?> </span>
+        </div>
+    </header>
+    <div class="post-content">
+        <p><?php echo $post->content; ?></p>
+    </div>
+    <footer class="post-footer">
+        <hr>
+    </footer>
+</article>
+<section class="comments">
+    <?php if(!$comments->isEmpty()): ?>
+        <h2>Comments on <?php echo $post->title; ?></h2>
+        <ul>
+            <?php foreach($comments as $comment): ?>
+                <li>
+                    <article>
+                        <header>
+                            <div class="clearfix">
+                                <span class="right date"><?php echo explode(' ',$comment->created_at)[0]; ?></span>
+                                <span class="left commenter"><?php echo link_to_route('post.show',$comment->commenter,$post->id); ?></span>
+                            </div>
+                        </header>
+                        <div class="comment-content">
+                            <p><?php echo e($comment->comment); ?></p>
+                        </div>
+                        <footer>
+                            <hr>
+                        </footer>
+                    </article>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <h2>No Comments on <?php echo $post->title; ?></h2>
+    <?php endif; ?>
+    <!--comment form -->
+    <?php echo $__env->make('comments.commentform', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</section>

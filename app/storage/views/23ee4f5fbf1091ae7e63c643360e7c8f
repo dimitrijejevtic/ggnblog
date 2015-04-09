@@ -1,0 +1,28 @@
+<?php if(!empty($notFound)): ?>
+<p>Sorry nothing found for your query!</p>
+<?php else: ?>
+<?php foreach($posts as $post): ?>
+	<article class="post">
+		<header class="post-header">
+			<h1 class="post-title">
+				<?php echo link_to_route('post.show',$post->title,$post->id); ?>
+
+			</h1>
+			<div class="clearfix">
+				<span class="left date"><?php echo explode(' ',$post->created_at)[0]; ?></span>
+				<span class="right label"><?php echo $post->comment_count; ?> comments </span>
+			</div>
+		</header>
+		<div class="post-content">
+			<p><?php echo $post->read_more.' ...'; ?></p>
+			<span><?php echo link_to_route('post.show','Read full article',$post->id); ?>
+
+		</div>
+		<footer class="post-footer">
+			<hr>
+		</footer>
+	</article>
+<?php endforeach; ?>
+<?php echo $posts->links(); ?>
+
+<?php endif; ?>

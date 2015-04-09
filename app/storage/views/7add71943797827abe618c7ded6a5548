@@ -1,0 +1,28 @@
+<div class="small-6 large-6 column login-form">
+        <?php echo Form::open(['action' => 'BlogController@postLogin']); ?>
+
+        <fieldset>
+            <legend>Login</legend>
+            <?php echo Form::label('username','Username'); ?>
+
+            <?php echo Form::text('username',Input::old('username'),['placeholder'=>'Your nice name']); ?>
+
+            <?php echo Form::label('password','Password'); ?>
+
+            <?php echo Form::password('password',['placeholder'=>'Password here']); ?>
+
+            <?php echo Form::submit('Login',['class'=>'button tiny radius']); ?>
+
+        </fieldset>
+        <?php echo Form::close(); ?>
+
+        <?php if($errors->has()): ?>
+            <?php foreach($errors->all() as $message): ?>
+                <span class="label alert round"><?php echo $message; ?></span><br><br>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?php if(Session::has('failure')): ?>
+            <span class="label alert round"><?php echo Session::get('failure'); ?></span>
+        <?php endif; ?>
+</div>
+

@@ -1,0 +1,49 @@
+<div id="reply">
+    <h2>Leave a Reply</h2>
+    <?php if(Session::has('success')): ?>
+        <div data-alert class="alert-box round">
+            <?php echo Session::get('success'); ?>
+
+            <a href="#" class="close">&times;</a>
+        </div>
+    <?php endif; ?>
+    <?php echo Form::open(['route'=>['comment.new',$post->id]]); ?>
+
+        <div class="row">
+            <div class="small-5 large-5 column">
+                <?php echo Form::label('commenter','Name:'); ?>
+
+                <?php echo Form::text('commenter',Input::old('commenter')); ?>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-5 large-5 column">
+                <?php echo Form::label('email','Email:'); ?>
+
+                <?php echo Form::text('email',Input::old('email')); ?>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-7 large-7 column">
+                <?php echo Form::label('comment','Comment:'); ?>
+
+                <?php echo Form::textarea('comment',Input::old('comment'),['rows'=>5]); ?>
+
+            </div>
+        </div>
+    <?php if($errors->has()): ?>
+        <?php foreach($errors->all() as $error): ?>
+            <div data-alert class="alert-box warning round">
+                <?php echo $error; ?>
+
+                <a href="#" class="close">&times;</a>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php echo Form::submit('Submit',['class'=>'button tiny radius']); ?>
+
+    <?php echo Form::close(); ?>
+
+</div>
