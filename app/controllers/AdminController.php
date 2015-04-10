@@ -41,7 +41,7 @@ class AdminController extends BaseController{
         {
             if(Auth::attempt($credentials))
                 return Redirect::to('dash-board');
-            return Redirect::back()->withInput()->with('failure','username or password is invalid!');
+            return Redirect::back()->withInput()->with('failure','Username or password is invalid!');
         }
         else
         {

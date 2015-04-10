@@ -13,7 +13,7 @@
 			</div>
 		</header>
 		<div class="post-content">
-			<p>{{$post->read_more.' ...'}}</p>
+			<p>{{$post->read_more.'...'}}</p>
 			<span>{{link_to_route('post.show','Read full article',$post->id)}}
 		</div>
 		<footer class="post-footer">

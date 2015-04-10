@@ -15,7 +15,7 @@ class BlogController extends BaseController
     {
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         $posts->getFactory()->setViewName('pagination::simple');
-        $this->layout->title = 'Home Page | Laravel 4 Blog';
+        $this->layout->title = 'Home Page | GGN Blog';
         $this->layout->main = View::make('home')->nest('content', 'index', compact('posts'));
     }
 
@@ -51,7 +51,7 @@ class BlogController extends BaseController
         if ($validator->passes()) {
             if (Auth::attempt($credentials))
                 return Redirect::to('admin/dash-board');
-            return Redirect::back()->withInput()->with('failure', 'username or password is invalid!');
+            return Redirect::back()->withInput()->with('failure', 'Username or password is invalid!');
         } else {
             return Redirect::back()->withErrors($validator)->withInput();
         }

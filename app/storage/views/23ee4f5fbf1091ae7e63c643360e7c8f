@@ -14,7 +14,7 @@
 			</div>
 		</header>
 		<div class="post-content">
-			<p><?php echo $post->read_more.' ...'; ?></p>
+			<p><?php echo $post->read_more.'...'; ?></p>
 			<span><?php echo link_to_route('post.show','Read full article',$post->id); ?>
 
 		</div>

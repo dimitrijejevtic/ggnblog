@@ -43,8 +43,8 @@
             </nav>
             <div class="sub-header">
                 <hgroup>
-                    <h1>{{HTML::link('/','Laravel 4 Blog')}}</h1>
-                    <h2>Laravel 4 Simple Blog tutorial</h2>
+                    <h1>{{HTML::link('/','GoodGame Network blog')}}</h1>
+                    <h2>Whats new?</h2>
                 </hgroup>
             </div>
         </header>

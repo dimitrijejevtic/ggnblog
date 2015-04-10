@@ -3,7 +3,7 @@
         <fieldset>
             <legend>Login</legend>
             {{ Form::label('username','Username') }}
-            {{ Form::text('username',Input::old('username'),['placeholder'=>'Your nice name']) }}
+            {{ Form::text('username',Input::old('username'),['placeholder'=>'Your usrname']) }}
             {{ Form::label('password','Password') }}
             {{ Form::password('password',['placeholder'=>'Password here']) }}
             {{ Form::submit('Login',['class'=>'button tiny radius']) }}
