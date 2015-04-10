@@ -12,6 +12,8 @@
         <p>{{ $post->content }}</p>
     </div>
     <footer class="post-footer">
+    <div class="fb-like" data-href="http://ggnblog.com/post/{{$post->id}}/show" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    <div class="fb-share-button" data-href="http://ggnblog.com/post/{{$post->id}}/show" data-layout="button_count"></div>
         <hr>
     </footer>
 </article>
